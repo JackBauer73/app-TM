@@ -2,11 +2,16 @@
 
 namespace App\Http\Middleware;
 
+use App\Http\Controllers\HomeController;
 use App\Providers\RouteServiceProvider;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
+use App\Http\Controllers\ClubController;
+use App\Http\Controllers\PlayerController;
+
+
 
 class RedirectIfAuthenticated
 {
@@ -21,7 +26,14 @@ class RedirectIfAuthenticated
 
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
-                return redirect(RouteServiceProvider::HOME);
+                // return redirect(RouteServiceProvider::HOME);
+                $role = Auth::user()->role;
+                // $role = 'Club';
+                if ($role == 'Club') {
+                    return redirect('club');
+                } else if ($role == 'Player') {
+                    return redirect('player');
+                }
             }
         }
 

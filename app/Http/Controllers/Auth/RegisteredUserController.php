@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Auth;
 
+
+
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
@@ -32,13 +34,17 @@ class RegisteredUserController extends Controller
     {
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
+            'role' => ['required', 'string', 'max:20'],
+            'number' => ['required', 'string', 'max:20'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:' . User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
+            'role' => $request->role,
+            'number' => $request->number,
             'password' => Hash::make($request->password),
         ]);
 
@@ -46,6 +52,14 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-        return redirect(RouteServiceProvider::HOME);
+        $role = Auth::user()->role;
+        // $role = 'Club';
+        if ($role == 'Club') {
+            return redirect('club');
+        } else if ($role == 'Player') {
+            return redirect('player');
+        }
+
+        // return redirect(RouteServiceProvider::HOME);
     }
 }
