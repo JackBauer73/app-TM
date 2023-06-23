@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Player;
-use App\Http\Requests\StorePlayerRequest;
-use App\Http\Requests\UpdatePlayerRequest;
+use App\Models\Tableau;
+use App\Http\Requests\StoreTableauRequest;
+use App\Http\Requests\UpdateTableauRequest;
 
-class PlayerController extends Controller
+class TableauController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('players.index');
+        //
     }
 
     /**
@@ -27,7 +27,7 @@ class PlayerController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StorePlayerRequest $request)
+    public function store(StoreTableauRequest $request)
     {
         //
     }
@@ -35,7 +35,7 @@ class PlayerController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Player $player)
+    public function show(Tableau $tableau)
     {
         //
     }
@@ -43,7 +43,7 @@ class PlayerController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Player $player)
+    public function edit(Tableau $tableau)
     {
         //
     }
@@ -51,7 +51,7 @@ class PlayerController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdatePlayerRequest $request, Player $player)
+    public function update(UpdateTableauRequest $request, Tableau $tableau)
     {
         //
     }
@@ -59,7 +59,7 @@ class PlayerController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Player $player)
+    public function destroy(Tableau $tableau)
     {
         //
     }

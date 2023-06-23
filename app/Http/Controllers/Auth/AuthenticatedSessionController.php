@@ -38,8 +38,6 @@ class AuthenticatedSessionController extends Controller
 
             return redirect()->intended('player');
         }
-
-        // return redirect()->intended('club');
     }
 
     /**

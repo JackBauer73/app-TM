@@ -73,8 +73,13 @@
                                 <li><a href="contact.html" class="nav-link">Contact</a></li>
                                 @if (Route::has('login'))
                                     @auth
-                                        <a href="{{ url('/home') }}"
-                                            class="btn btn-primary py-2 px-3 mr-3">{{ Auth::user()->name }}</a>
+                                        @if (Auth::user()->role === 'Club')
+                                            <a href="{{ route('club') }}"
+                                                class="btn btn-primary py-2 px-3 mr-3">{{ Auth::user()->name }}</a>
+                                        @else
+                                            <a href="{{ route('player') }}"
+                                                class="btn btn-primary py-2 px-3 mr-3">{{ Auth::user()->name }}</a>
+                                        @endif
                                     @else
                                         <a href="{{ route('login') }}"
                                             class="btn btn-primary py-2 px-3
@@ -85,7 +90,6 @@
                                                 class="btn btn-secondary py-2 px-3 mr-3">Enregistrer</a>
                                         @endif
                                     @endauth
-                                    {{-- </div> --}}
                                 @endif
 
                             </ul>

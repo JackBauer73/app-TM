@@ -22,7 +22,9 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ url('/home') }}" class="nav-link">
+                    <a href="{{ route('club') }}" class="nav-link">
+                        {{-- <a href="" class="nav-link"> --}}
+
                         <i class="nav-icon fas fa-home"></i>
                         <p>Tableau de bord
                         </p>

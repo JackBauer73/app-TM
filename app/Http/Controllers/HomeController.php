@@ -20,6 +20,9 @@ class HomeController extends Controller
             return view('clubs.index');
         } else if ($role == 'Player') {
             return view('players.index');
+        } else {
+            return view('welcome');
+            # code...
         }
     }
 }
