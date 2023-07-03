@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="fr">
-use Carbon\Carbon;
 
 @include('layouts.header')
 
@@ -26,18 +25,20 @@ use Carbon\Carbon;
         @include('layouts.sidebar')
 
         <!-- Content Wrapper. Contains page content -->
-        @yield('content')
+        <div class="content-wrapper">
+
+            @yield('content')
+        </div>
 
         <!-- /.content-wrapper -->
 
         <!-- Main Footer -->
         @include('layouts.footer')
 
-    </div>
-    <!-- ./wrapper -->
+        <!-- ./wrapper -->
 
-    <!-- Script -->
-    @include('layouts.script')
+        <!-- Script -->
+        @include('layouts.script')
 
 
 

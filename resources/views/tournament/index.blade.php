@@ -1,15 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.app')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=², initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Test</title>
-</head>
+@section('content')
+<section class="content-header">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card card-primary">
+                <div class="card-header" style="background: url('/images/photo1.png') center center;">
+                    <h3 class="card-title">Tournoi{{auth()->user()->tournaments()->name }}</h3>
+                </div>
+            </div>
+        </div>
+        <!-- /.card -->
+    </div>
+</section>
 
-<body>
-    <h1>Fiche enregistrée</h1>
-</body>
 
-</html>
+
+@endsection

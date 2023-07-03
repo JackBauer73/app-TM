@@ -23,7 +23,8 @@ class TournamentController extends Controller
 
     {
         $tournaments = Tournament::all();
-        return view('tournaments.index', compact('tournaments'));   
+
+        return view('tournament.index', compact('tournaments'));   
         // return view('tournament.index')->with(['tournaments' => Tournament::all(), 'users' => User::all()]);
     }
 
@@ -123,10 +124,8 @@ class TournamentController extends Controller
         // $tournaments = Tournament::all();
         // return view('players.index', ['tournaments' => $tournaments]);
 
-
-
-        $tournaments = auth()->user()->tournaments()->with('tableaux')->get();
-        return view('clubs.index', compact('tournaments'));
+        $tournaments_show = Tournament::find($id);
+        return view('tournament.index', compact('tournament'));
     }
 
     /**

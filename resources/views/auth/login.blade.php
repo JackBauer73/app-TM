@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="utf-8">
@@ -24,12 +24,13 @@
     </style>
 </head>
 
-<body class="hold-transition login-page">
-    <a href="{{ url('/') }}">
+<body class="hold-transition login-page"
+    style="background-image: url('assets/images/bg_tm.jpg'); background-color: rgba(0, 0, 0, 0.5);background-repeat: no-repeat; background-size: cover;backdrop-filter: blur(10px);">
+    <a href=" {{ url('/') }}">
         <img class="logo1" src="{{ asset('images/logo_TournamentManager.png') }}" alt="Logo"></a>
     <div class="login-box">
         <div class="login-logo">
-            <a href="{{ url('/') }}"><b>Tournament</b>MANAGER</a>
+            <a href="{{ url('/') }}"><span style="color: white;"><b>TOURNAMENT</b>MANAGER</span></a>
         </div>
         @include('partials.errors')
 
@@ -49,7 +50,8 @@
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="password" name="password"class="form-control" placeholder="Password"id="password">
+                        <input type="password" name="password" class="form-control" placeholder="Password"
+                            id="password">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-lock"></span>
@@ -91,6 +93,7 @@
     <script src="{{ asset('plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <!-- AdminLTE App -->
     <script src="{{ asset('dist/js/adminlte.min.js') }}"></script>
+
 </body>
 
 </html>

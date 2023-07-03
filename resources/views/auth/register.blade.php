@@ -24,12 +24,13 @@
 
 </head>
 
-<body class="hold-transition register-page">
+<body class="hold-transition register-page"
+    style="background-image: url('assets/images/bg_tm.jpg'); background-color: rgba(0, 0, 0, 0.5);background-repeat: no-repeat; background-size: cover;backdrop-filter: blur(10px);">
     <a href="{{ url('/') }}">
         <img class="logo1" src="{{ asset('images/logo_TournamentManager.png') }}" alt="Logo"></a>
     <div class="register-box">
         <div class="register-logo">
-            <a href="{{ url('/') }}"><b>TOURNAMENT</b>MANAGER</a>
+            <a href="{{ url('/') }}"><span style="color: white;"><b>TOURNAMENT</b>MANAGER</span></a>
 
         </div>
         @include('partials.errors')
@@ -48,8 +49,8 @@
                     </div>
                     <!-- Numéro du Club -->
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" name="number" placeholder="Numbero du Club"
-                            id="number" value="{{ old('number') }}" required>
+                        <input type="text" class="form-control" name="number" placeholder="Numbero du Club" id="number"
+                            value="{{ old('number') }}" required>
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-id-card"></span>
@@ -59,8 +60,7 @@
 
 
                     <div class="input-group mb-3">
-                        <input type="text" name="name" id="name" class="form-control"
-                            placeholder="Full name">
+                        <input type="text" name="name" id="name" class="form-control" placeholder="Full name">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-user"></span>
