@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Tableau;
 use App\Http\Requests\StoreTableauRequest;
 use App\Http\Requests\UpdateTableauRequest;
+use Illuminate\Support\Facades\Date;
 
 class TableauController extends Controller
 {
@@ -35,9 +36,11 @@ class TableauController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Tableau $tableau)
+    public function show(Date $date)
     {
         //
+        $tableau = Tableau::where('date', $date)->first();
+        // return view('tournament.index', ['tableau' => $tableau]);
     }
 
     /**

@@ -37,7 +37,9 @@ Route::get('/', function () {
 
 // Routes pour les joueurs
 
-Route::get('club/tournament/index', [TournamentController::class, 'index'])->name('tournament_index');
+// Route::get('club/tournament/{name}', [TournamentController::class, 'index'])->name('tournament_index');
+Route::get('club/tournament/{name}', [TournamentController::class, 'show'])->name('tournament_show');
+
 
 Route::get('club', [ClubController::class, 'index'])->name('club');
 Route::get('club/tournaments/create', [TournamentController::class, 'create'])->name('tournament.create');

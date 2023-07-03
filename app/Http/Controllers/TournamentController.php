@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests\StoreTournamentRequest;
 use App\Http\Requests\UpdateTournamentRequest;
+use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Facades\Validator;
 
 
@@ -22,10 +23,10 @@ class TournamentController extends Controller
 
 
     {
-        $tournaments = Tournament::all();
-
-        return view('tournament.index', compact('tournaments'));   
+        // $tournament = Tournament::all();
+        // return view('tournament.index', compact('tournament'));
         // return view('tournament.index')->with(['tournaments' => Tournament::all(), 'users' => User::all()]);
+        return view('tournament.index');
     }
 
     /**
@@ -119,13 +120,10 @@ class TournamentController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(string $name, Date $date)
     {
-        // $tournaments = Tournament::all();
-        // return view('players.index', ['tournaments' => $tournaments]);
-
-        $tournaments_show = Tournament::find($id);
-        return view('tournament.index', compact('tournament'));
+        $tournament = Tournament::where('name', $name)->first();
+        return view('tournament.index', ['tournament' => $tournament]);
     }
 
     /**
