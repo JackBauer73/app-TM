@@ -54,8 +54,8 @@
                     <div class="icon">
                         <i class="fas fa-user-plus"></i>
                     </div>
-                    <a href="#" class="small-box-footer">
-                        More info <i class="fas fa-arrow-circle-right"></i>
+                    <a href="#" type="button" class="small-box-footer" data-toggle="modal" data-target="#modal-lg">
+                        Ajouter un participant<i class="fas fa-plus"></i>
                     </a>
                 </div>
             </div>
@@ -70,7 +70,7 @@
                     <div class="icon">
                         <i class="fas fa-chart-pie"></i>
                     </div>
-                    <a href="#" class="small-box-footer">
+                    <a href="#" ype="button" class="small-box-footer">
                         More info <i class="fas fa-arrow-circle-right"></i>
                     </a>
                 </div>
@@ -78,8 +78,66 @@
 
         </div>
     </div>
+    <!------------------------------------------------------->
+    <!----------- Fiche Modal Ajout d'un joueur ------------->
+    <!------------------------------------------------------->
 
-    <!-- *** Liste des Tableau par journée de tournoi *** -->
+    <div class="modal fade" id="modal-lg">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-warning">
+                    <h4 class="modal-title">Ajout d'un joueur</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form method="POST" action="{{ route('createPlayer', $tournament->name) }}" enctype="multipart/form-data">
+                    @csrf
+                    <div class="modal-body">
+
+                        <div class="input-group mb-3">
+                            <input type="number" class="form-control" name="number" placeholder="Numbero de licence"
+                                id="number" value="{{ old('number') }}" required>
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="fas fa-id-card"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <input type="text" name="name" id="name" class="form-control"
+                                placeholder="Full name">
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="fas fa-user"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input-group mb-3">
+                            <input type="email" name="email" id="email" class="form-control" placeholder="Email">
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="fas fa-envelope"></span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="modal-footer justify-content-between">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                        <button type="submit" class="btn btn-primary">Enregistrer</button>
+                    </div>
+                </form>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+
+    <!------------------------------------------------------->
+    <!----- Liste des Tableau par journée de tournoi -------->
+    <!------------------------------------------------------->
 
     @foreach ($tournament->tableaux->sortBy('date')->groupBy('date') as $date => $tableaux)
         <div class="content mb-2 mt-4">

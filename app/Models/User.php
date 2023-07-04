@@ -48,4 +48,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Tournament::class);
     }
+
+    public function dossards()
+    {
+        return $this->hasMany(Dossard::class);
+    }
 }

@@ -7,6 +7,8 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Models\User;
+use App\Models\Dossard;
+
 
 
 /*
@@ -51,6 +53,8 @@ Route::post('club/tournaments/create', [TournamentController::class, 'store'])->
 //     Route::get('tournaments/create', [TournamentController::class, 'create'])->name('tournament.create');
 //     Route::post('tournaments/create', [TournamentController::class, 'store'])->name('tournament.store');
 // });
+
+Route::post('club/tournament/{name}', [PlayerController::class, 'store'])->name('createPlayer');
 
 
 Route::middleware('auth')->group(function () {

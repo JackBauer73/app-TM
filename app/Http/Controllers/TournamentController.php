@@ -123,7 +123,8 @@ class TournamentController extends Controller
     public function show(string $name, Date $date)
     {
         $tournament = Tournament::where('name', $name)->first();
-        return view('tournament.index', ['tournament' => $tournament]);
+        $dossards = $tournament->dossards;
+        return view('tournament.index', ['tournament' => $tournament, 'dossard' => $dossards]);
     }
 
     /**

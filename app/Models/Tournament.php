@@ -33,4 +33,8 @@ class Tournament extends Model
     {
         return $this->hasMany(Tableau::class);
     }
+    public function dossards()
+    {
+        return $this->hasMany(Dossard::class);
+    }
 }
