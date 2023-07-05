@@ -11,14 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('players', function (Blueprint $table) {
+        Schema::create('clubs', function (Blueprint $table) {
             $table->id();
-            $table->string('num_licence', 20);
-            $table->string('name', 50);
-            $table->string('surname', 50);
-            $table->string('sexe', 10);
-            $table->date('date_naissance');
-            $table->integer('pts_classement');
+            $table->string('num_club', 20)->nullable(false);
+            $table->string('name', 50)->nullable();
             $table->unsignedBigInteger('user_id')->nullable();
             $table->timestamps();
 
@@ -31,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('players');
+        Schema::dropIfExists('clubs');
     }
 };
