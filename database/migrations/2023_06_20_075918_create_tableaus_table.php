@@ -13,17 +13,18 @@ return new class extends Migration
     {
         Schema::create('tableaus', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('tournament_id')->constrained('tournaments');
-            $table->string('nom_tableau');
-            $table->integer('max_joueurs');
-            $table->decimal('prix_tournoi');
-            $table->time('heure');
+            $table->foreignId('tournaments_id')->constrained('tournaments');
+            $table->string('nom_tableau', 50);
+            $table->boolean('visible');
             $table->date('date');
-            $table->integer('points_mini');
+            $table->time('hours');
+            $table->decimal('price');
+            $table->integer('max_players');
+            $table->string('type_tableau', 50);
+            $table->integer('points_mini')->default(500);
             $table->integer('points_max');
-            $table->string('type_tableau');
-            $table->boolean('visible_tab');
-            $table->string('colors');
+            $table->boolean('etat')->default(0);
+            $table->string('colors', 25);
             $table->timestamps();
         });
     }

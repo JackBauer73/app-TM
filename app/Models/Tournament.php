@@ -22,18 +22,20 @@ class Tournament extends Model
         'max_simple',
         'max_double',
         'poster',
+        'etat',
+
     ];
     // Relation avec le modèle User
-    public function user()
+    public function club()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Club::class);
     }
 
-    public function tableaux()
+    public function tableau()
     {
         return $this->hasMany(Tableau::class);
     }
-    public function dossards()
+    public function dossard()
     {
         return $this->hasMany(Dossard::class);
     }

@@ -14,4 +14,8 @@ class Player extends Model
     {
         return $this->belongsTo(User::class);
     }
+    public function dossard()
+    {
+        return $this->hasMany(Dossard::class);
+    }
 }

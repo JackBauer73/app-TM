@@ -56,39 +56,44 @@
                     </a>
                 </li>
                 <li class="nav-header">MES TOURNOIS</li>
-                @foreach (auth()->user()->tournaments as $tournament)
-                    {{-- @foreach ($tournaments as $tournament) --}}
+                @if (auth()->user()->tournaments = 'null')
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <p>{{ $tournament->name }}
-                                <i class="fas fa-angle-left right"></i>
+                    </li>
+                @else
+                    @foreach (auth()->user()->tournaments as $tournament)
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <p>{{ $tournament->name }}
+                                    <i class="fas fa-angle-left right"></i>
 
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="{{ route('tournament_show', $tournament->name) }}" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Présentation</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Inscriptions</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="../forms/editors.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Gérer</p>
-                                </a>
-                            </li>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{ route('tournament_show', $tournament->name) }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Présentation</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Inscriptions</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="../forms/editors.html" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Gérer</p>
+                                    </a>
+                                </li>
 
-                        </ul>
-                @endforeach
+                            </ul>
 
-                </li>
+                        </li>
+                    @endforeach
+
+                @endif
 
             </ul>
         </nav>

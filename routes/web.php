@@ -46,6 +46,7 @@ Route::get('club/tournament/{name}', [TournamentController::class, 'show'])->nam
 Route::get('club', [ClubController::class, 'index'])->name('club');
 Route::get('club/tournaments/create', [TournamentController::class, 'create'])->name('tournament.create');
 Route::post('club/tournaments/create', [TournamentController::class, 'store'])->name('tournament.store');
+Route::get('player', [PlayerController::class, 'index'])->name('player');
 
 
 // Route::prefix('club')->name('clubs.')->group(function () {

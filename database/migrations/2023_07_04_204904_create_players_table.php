@@ -17,12 +17,10 @@ return new class extends Migration
             $table->string('name', 50);
             $table->string('surname', 50);
             $table->string('sexe', 10);
-            $table->date('date_naissance');
+            $table->date('date_naissance')->nullable();
             $table->integer('pts_classement');
-            $table->unsignedBigInteger('user_id')->nullable();
+            $table->foreignId('users_id')->constrained('users')->nullable();
             $table->timestamps();
-
-            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

@@ -13,12 +13,10 @@ return new class extends Migration
     {
         Schema::create('clubs', function (Blueprint $table) {
             $table->id();
-            $table->string('num_club', 20)->nullable(false);
+            $table->string('num_club', 20);
             $table->string('name', 50)->nullable();
-            $table->unsignedBigInteger('user_id')->nullable();
+            $table->foreignId('users_id')->constrained('users')->nullable();
             $table->timestamps();
-
-            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

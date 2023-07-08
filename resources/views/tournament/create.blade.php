@@ -119,9 +119,9 @@
                                                     <select id="type_tournament" name="type_tournament"
                                                         class="form-control" required>
                                                         <option value="">--Selectionnez--</option>
-                                                        <option value="0">Simple</option>
-                                                        <option value="1">Simple + Double</option>
-                                                        <option value="2">Double</option>
+                                                        <option value="1">Simple</option>
+                                                        <option value="2">Simple + Double</option>
+                                                        <option value="3">Double</option>
                                                     </select>
                                                 </div>
                                             </div>

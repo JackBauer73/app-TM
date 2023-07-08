@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('inscriptions', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('dossards_id')->constrained('dossards');
+            $table->foreignId('tableaus_id')->constrained('tableaus');
+            $table->boolean('present')->nullable();
             $table->timestamps();
         });
     }

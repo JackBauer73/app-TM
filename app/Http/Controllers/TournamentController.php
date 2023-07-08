@@ -26,6 +26,8 @@ class TournamentController extends Controller
         // $tournament = Tournament::all();
         // return view('tournament.index', compact('tournament'));
         // return view('tournament.index')->with(['tournaments' => Tournament::all(), 'users' => User::all()]);
+
+
         return view('tournament.index');
     }
 

@@ -22,8 +22,12 @@ class Dossard extends Model
         return $this->belongsTo(Tournament::class);
     }
 
-    public function user()
+    public function player()
     {
-        return $this->belongsTo(User::class, 'player_id');
+        return $this->belongsTo(User::class);
+    }
+    public function inscription()
+    {
+        return $this->hasMany(Inscription::class);
     }
 }

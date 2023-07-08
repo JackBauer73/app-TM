@@ -13,14 +13,12 @@ return new class extends Migration
     {
         Schema::create('dossards', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('tournament_id');
-            $table->unsignedBigInteger('player_id');
-            $table->integer('numero_dossard');
+            $table->foreignId('tournaments_id')->constrained('tournaments');
+            $table->foreignId('players_id')->constrained('players');
+            $table->integer('num_dossard');
             $table->boolean('etat')->default(false); // Champ "état" pour indiquer si le dossard est supprimé
             $table->timestamps();
-
-            $table->foreign('tournament_id')->references('id')->on('tournaments')->onDelete('cascade');
-            $table->foreign('player_id')->references('id')->on('users')->onDelete('cascade');
+            $table->unique(['tournaments_id', 'players_id']);
         });
     }
 

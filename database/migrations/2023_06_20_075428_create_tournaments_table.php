@@ -13,17 +13,18 @@ return new class extends Migration
     {
         Schema::create('tournaments', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained('users');
-            $table->string('name');
-            $table->boolean('visible')->default(false);
-            $table->dateTime('debut');
-            $table->dateTime('fin');
-            $table->dateTime('inscrit_debut');
-            $table->dateTime('inscrit_fin');
-            $table->integer('type_tournament');
+            $table->foreignId('clubs_id')->constrained('clubs');
+            $table->string('name', 50);
+            $table->boolean('visible');
+            $table->datetime('debut');
+            $table->datetime('fin');
+            $table->datetime('inscrit_debut');
+            $table->datetime('inscrit_fin');
+            $table->string('type_tournament', 50);
             $table->integer('max_simple');
             $table->integer('max_double');
-            $table->text('poster')->nullable();
+            $table->text('poster', 50);
+            $table->boolean('etat');
             $table->timestamps();
         });
     }

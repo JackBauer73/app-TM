@@ -19,9 +19,6 @@ return new class extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
-
-            // Définir la contrainte d'unicité sur 'role' et 'number'
-            $table->unique(['role', 'number']);
         });
     }
 
